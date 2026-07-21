@@ -1,6 +1,11 @@
 --THE DDL script
 -- if object already exist then create 
 --this one is to create table which we will later on load with cleaned data from bronze layer 
+
+
+
+
+
 if OBJECT_ID('silver.crm_cust_info','U') is NOT NULL 
     drop table silver.crm_cust_info
 create  table silver.crm_cust_info(
