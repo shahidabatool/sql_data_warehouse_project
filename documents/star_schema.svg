@@ -1,0 +1,66 @@
+<svg viewBox="0 0 1100 700" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="1100" height="700" fill="#0f1117"/>
+
+  <text x="550" y="45" text-anchor="middle" fill="#f5f5f5" font-size="26" font-weight="700">Gold Layer — Star Schema</text>
+
+  <!-- dim_customer table -->
+  <g>
+    <rect x="60" y="150" width="280" height="290" rx="8" fill="#1c1f2b" stroke="#63b3ed" stroke-width="2"/>
+    <rect x="60" y="150" width="280" height="40" rx="8" fill="#2b6cb0"/>
+    <text x="200" y="176" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">dim_customer</text>
+    <text x="80" y="212" fill="#90cdf4" font-size="13" font-weight="700">PK  customer_key</text>
+    <text x="80" y="234" fill="#cbd5e0" font-size="12">customer_id</text>
+    <text x="80" y="254" fill="#cbd5e0" font-size="12">customer_number</text>
+    <text x="80" y="274" fill="#cbd5e0" font-size="12">first_name</text>
+    <text x="80" y="294" fill="#cbd5e0" font-size="12">last_name</text>
+    <text x="80" y="314" fill="#cbd5e0" font-size="12">country</text>
+    <text x="80" y="334" fill="#cbd5e0" font-size="12">marital_status</text>
+    <text x="80" y="354" fill="#cbd5e0" font-size="12">gender</text>
+    <text x="80" y="374" fill="#cbd5e0" font-size="12">birthdate</text>
+    <text x="80" y="394" fill="#cbd5e0" font-size="12">create_date</text>
+  </g>
+
+  <!-- fact_sales table (center) -->
+  <g>
+    <rect x="410" y="230" width="280" height="290" rx="8" fill="#1c1f2b" stroke="#ecc94b" stroke-width="2.5"/>
+    <rect x="410" y="230" width="280" height="40" rx="8" fill="#b7912a"/>
+    <text x="550" y="256" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">fact_sales</text>
+    <text x="430" y="292" fill="#e2c9a8" font-size="12">order_number</text>
+    <text x="430" y="312" fill="#f6ad55" font-size="13" font-weight="700">FK  product_key</text>
+    <text x="430" y="332" fill="#f6ad55" font-size="13" font-weight="700">FK  customer_key</text>
+    <text x="430" y="352" fill="#e2c9a8" font-size="12">order_date</text>
+    <text x="430" y="372" fill="#e2c9a8" font-size="12">shipping_date</text>
+    <text x="430" y="392" fill="#e2c9a8" font-size="12">due_date</text>
+    <text x="430" y="412" fill="#e2c9a8" font-size="12">sales_amount</text>
+    <text x="430" y="432" fill="#e2c9a8" font-size="12">quantity</text>
+    <text x="430" y="452" fill="#e2c9a8" font-size="12">price</text>
+  </g>
+
+  <!-- dim_products table -->
+  <g>
+    <rect x="760" y="150" width="280" height="310" rx="8" fill="#1c1f2b" stroke="#68d391" stroke-width="2"/>
+    <rect x="760" y="150" width="280" height="40" rx="8" fill="#2f855a"/>
+    <text x="900" y="176" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">dim_products</text>
+    <text x="780" y="212" fill="#9ae6b4" font-size="13" font-weight="700">PK  product_key</text>
+    <text x="780" y="234" fill="#cbd5e0" font-size="12">product_id</text>
+    <text x="780" y="254" fill="#cbd5e0" font-size="12">product_number</text>
+    <text x="780" y="274" fill="#cbd5e0" font-size="12">product_name</text>
+    <text x="780" y="294" fill="#cbd5e0" font-size="12">category_id</text>
+    <text x="780" y="314" fill="#cbd5e0" font-size="12">category</text>
+    <text x="780" y="334" fill="#cbd5e0" font-size="12">subcategory</text>
+    <text x="780" y="354" fill="#cbd5e0" font-size="12">maintenance</text>
+    <text x="780" y="374" fill="#cbd5e0" font-size="12">cost</text>
+    <text x="780" y="394" fill="#cbd5e0" font-size="12">product_line</text>
+    <text x="780" y="414" fill="#cbd5e0" font-size="12">start_date</text>
+  </g>
+
+  <!-- Relationship lines -->
+  <path d="M340 300 L 410 320" stroke="#63b3ed" stroke-width="2" fill="none"/>
+  <text x="365" y="295" fill="#90cdf4" font-size="11">1 ⟶ many</text>
+
+  <path d="M690 300 L 760 280" stroke="#68d391" stroke-width="2" fill="none"/>
+  <text x="700" y="270" fill="#9ae6b4" font-size="11">many ⟵ 1</text>
+
+  <text x="550" y="580" text-anchor="middle" fill="#718096" font-size="13">fact_sales sits at the center, joined to each dimension on its surrogate key</text>
+  <text x="550" y="605" text-anchor="middle" fill="#718096" font-size="12">dim_customer.customer_key = fact_sales.customer_key &#160;&#160;|&#160;&#160; dim_products.product_key = fact_sales.product_key</text>
+</svg>
